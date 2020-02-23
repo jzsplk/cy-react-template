@@ -6,14 +6,12 @@ cache:
     - ~/.npm
     - ~/.cache
     - $CACHE_DIR
-    - cache/Cypress
 
 install:
   - yarn install
 
 defaults: &defaults
   script:
-      - 'export CYPRESS_CACHE_FOLDER=../../cache/Cypress'
       #   ## print all Travis environment variables for debugging
       - yarn start &
       # - yarn cypress:record:parallel --group $STAGE_NAME
