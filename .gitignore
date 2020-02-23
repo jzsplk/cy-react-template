@@ -1,4 +1,4 @@
 cypress/videos/*
-node_modules/*
+# node_modules/*
 # production
 /build
