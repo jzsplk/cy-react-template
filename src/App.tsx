@@ -24,6 +24,7 @@ function App() {
           Check the cypress dashboard
         </a>
         <a
+          className="App-link"
           href="https://travis-ci.org/jzsplk/cyReact"
           target="_blank"
           rel="noopener noreferrer"
