@@ -28,6 +28,13 @@ exports[`<App /> render 1`] = `
     >
       Check the cypress dashboard
     </a>
+    <a
+      href="https://travis-ci.org/jzsplk/cyReact"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      travis ci page
+    </a>
   </header>
 </div>
 `;
