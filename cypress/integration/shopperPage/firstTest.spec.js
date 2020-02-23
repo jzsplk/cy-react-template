@@ -6,6 +6,7 @@ describe('My First Test', function() {
 		cy.contains('Returns Center')
 
 		cy.get('a:contains("View Full Policy")',)
+		cy.wait(2000);
 
 		cy.get('input').get("[name='order_number']").type('1248').should('have.value', '1248')
 		// cy.get('input[name="customer_email"]').get().type('y.zhang@aftership.com')
