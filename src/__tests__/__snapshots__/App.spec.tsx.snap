@@ -27,12 +27,6 @@ exports[`<App /> render 1`] = `
     >
       Learn React
     </a>
-    <button>
-      try deploy again
-    </button>
-    <button>
-      test travis-ci
-    </button>
   </header>
 </div>
 `;
