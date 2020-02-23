@@ -6,6 +6,17 @@ cache: yarn
 install:
   - yarn install
 
+defaults: &defaults
+  script:
+      #   ## print all Travis environment variables for debugging
+      - yarn start &
+      # - yarn cypress:record:parallel --group $STAGE_NAME
+      - yarn cypress run --record
+      # - yarn cypress:server:ci:parallel --group $STAGE_NAME
+      # after all tests finish running we need
+      # to kill all background jobs (like "npm start &")
+      - kill $(jobs -p) || true
+
 script:
   - yarn test
   - yarn run build
