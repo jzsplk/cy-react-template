@@ -18,8 +18,6 @@ function App() {
         >
           Learn React
         </a>
-        <button>try deploy again</button>
-        <button>test travis-ci</button>
       </header>
     </div>
   );
