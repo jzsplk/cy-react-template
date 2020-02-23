@@ -12,13 +12,6 @@ exports[`<App /> render 1`] = `
       className="App-logo"
       src="logo.svg"
     />
-    <p>
-      Edit 
-      <code>
-        src/App.js
-      </code>
-       and save to reload.
-    </p>
     <a
       className="App-link"
       href="https://reactjs.org"
@@ -26,6 +19,14 @@ exports[`<App /> render 1`] = `
       target="_blank"
     >
       Learn React
+    </a>
+    <a
+      className="App-link"
+      href="https://dashboard.cypress.io/projects/nkhmz8"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Check the cypress dashboard
     </a>
   </header>
 </div>
