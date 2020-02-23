@@ -25,7 +25,7 @@ function App() {
         </a>
         <a
           className="App-link"
-          href="https://travis-ci.org/jzsplk/cyReact"
+          href="https://travis-ci.org/jzsplk/cy-react-template"
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -29,7 +29,8 @@ exports[`<App /> render 1`] = `
       Check the cypress dashboard
     </a>
     <a
-      href="https://travis-ci.org/jzsplk/cyReact"
+      className="App-link"
+      href="https://travis-ci.org/jzsplk/cy-react-template"
       rel="noopener noreferrer"
       target="_blank"
     >
