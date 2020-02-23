@@ -23,6 +23,13 @@ function App() {
         >
           Check the cypress dashboard
         </a>
+        <a
+          href="https://travis-ci.org/jzsplk/cyReact"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          travis ci page
+        </a>
       </header>
     </div>
   );
