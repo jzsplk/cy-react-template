@@ -15,7 +15,7 @@ defaults: &defaults
       #   ## print all Travis environment variables for debugging
       - yarn start &
       # - yarn cypress:record:parallel --group $STAGE_NAME
-      - yarn cypress:run --spec 'cypress/integration/packages/admin/**/*'
+      - yarn cypress:run --spec 'cypress/integration/shopperPage/**/*'
       # - yarn cypress:server:ci:parallel --group $STAGE_NAME
       # after all tests finish running we need
       # to kill all background jobs (like "npm start &")
