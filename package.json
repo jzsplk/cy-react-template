@@ -21,7 +21,8 @@
     "deploy": "gh-pages -d build",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypress:run:record": "cypress run --record --key 1e66429c-4bd8-4f2c-a956-7ec31898f68f"
+    "cypress:run:record": "cypress run --record --key 1e66429c-4bd8-4f2c-a956-7ec31898f68f",
+    "cypress:run:record:p": "cypress run --record --key 1e66429c-4bd8-4f2c-a956-7ec31898f68f --parallel"
   },
   "eslintConfig": {
     "extends": "react-app"
