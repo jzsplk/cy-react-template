@@ -48,7 +48,10 @@ deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
-  keep_history: true
+  keep_history: false
   local_dir: build
+  project_name: cy-react-template
+  verbose: true
+  repo: jzsplk/cy-react-template
   on:
    branch: master
