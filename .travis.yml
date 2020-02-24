@@ -10,7 +10,7 @@ cache:
     - $CACHE_DIR
 
 install:
-  - yarn install
+  - yarn install --frozen-lockfile
 
 defaults: &defaults
   script:
