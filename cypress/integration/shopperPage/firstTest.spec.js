@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
-describe('My First Test', function() {
-  it('visit shopper page', function() {
+describe('shopper site order lookup', function() {
+  it('visit shopper page and type right order number and email, can see Create Returns button', function() {
 		cy.visit('https://admine2e.returnscenter.com/')
 		cy.contains('Returns Center')
 

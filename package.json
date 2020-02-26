@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "node-schedule": "^1.3.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.4.0",
@@ -22,8 +23,10 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "cypress:run:record": "cypress run --record",
-    "cypress:run:record:p": "cypress run --record --parallel"
-  },
+    "cypress:run:record:p": "cypress run --record --parallel",
+    "healthcheck": "yarn run cypress run --reporter mocha-spec-json-output-reporter --spec 'cypress/integration/shopperPage/**/*'; node src/connectors/slack/webhookReporter.js",
+    "cronChecker": "node src/job/testScheduler.js"
+   },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -44,8 +47,12 @@
     "@types/react-test-renderer": "^16.9.2",
     "awesome-typescript-loader": "^5.2.1",
     "cypress": "^4.0.2",
+    "dotenv": "^8.2.0",
     "gh-pages": "^2.2.0",
+    "lodash": "^4.17.15",
+    "mocha-spec-json-output-reporter": "^1.1.7",
     "react-test-renderer": "^16.12.0",
+    "slack-webhook": "^1.0.0",
     "source-map-loader": "^0.2.4"
   }
 }

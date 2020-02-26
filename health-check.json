@@ -1,0 +1,37 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-02-26T15:52:11.816Z",
+    "end": "2020-02-26T15:52:19.509Z",
+    "duration": 7693
+  },
+  "suites": [
+    {
+      "title": "shopper site order lookup",
+      "tests": [
+        {
+          "fullTitle": "shopper site order lookup visit shopper page",
+          "title": "visit shopper page",
+          "duration": 7648,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "fullTitle": "shopper site order lookup visit shopper page",
+      "title": "visit shopper page",
+      "duration": 7648,
+      "result": "passed",
+      "err": {}
+    }
+  ]
+}

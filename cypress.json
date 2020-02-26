@@ -1,4 +1,9 @@
 {
-  "baseUrl": "http://localhost:3000",
-  "projectId": "nkhmz8"
+  "baseUrl": "https://admine2e.returnscenter.com",
+  "projectId": "nkhmz8",
+  "video": false,
+  "reporter": "mocha-spec-json-output-reporter",
+  "reporterOptions": {
+    "fileName": "health-check.json"
+  }
 }
