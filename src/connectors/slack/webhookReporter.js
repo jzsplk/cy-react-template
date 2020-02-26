@@ -3,7 +3,7 @@ require("dotenv").config();
 const fs = require("fs");
 const SlackWebhook = require("slack-webhook");
 
-// const slack = new SlackWebhook(process.env.SLACK_WEBHOOK_URL);
+// const slack = new SlackWebhook(process.env.SLACK_WEBHOOK_URL_ME);
 const slack = new SlackWebhook(process.env.SLACK_WEEBHOOK_URL_PROJ_RC);
 
 function parseReport() {
