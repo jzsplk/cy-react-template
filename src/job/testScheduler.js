@@ -7,7 +7,7 @@ const healthScheduleJob = schedule.scheduleJob('1 15 * * * *', async function(){
 	try {
 		const { stdout, stderr } = await exec('yarn healthcheck');
 		console.log('stdout:', stdout);
-		console.error('stderr:', stderr);
+		stderr && console.error('stderr:', stderr);
 
 	} catch (error) {
 		console.error(error)

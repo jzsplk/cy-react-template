@@ -48,6 +48,7 @@ if (typeof data !== "undefined" && data.failures.length) {
     };
   });
 }
+
 // console.log(slack)
 // try {
 //   slack.send({
