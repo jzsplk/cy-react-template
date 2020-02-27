@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://jzsplk.github.io/cy-react-template/",
   "dependencies": {
+    "@slack/webhook": "^5.0.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -26,7 +27,7 @@
     "cypress:run:record:p": "cypress run --record --parallel",
     "healthcheck": "yarn run cypress run --reporter mocha-spec-json-output-reporter --spec 'cypress/integration/shopperPage/**/*'; node src/connectors/slack/webhookReporter.js",
     "cronChecker": "node src/job/testScheduler.js"
-   },
+  },
   "eslintConfig": {
     "extends": "react-app"
   },

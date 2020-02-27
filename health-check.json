@@ -5,18 +5,18 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2020-02-26T15:52:11.816Z",
-    "end": "2020-02-26T15:52:19.509Z",
-    "duration": 7693
+    "start": "2020-02-27T00:44:12.154Z",
+    "end": "2020-02-27T00:44:18.329Z",
+    "duration": 6175
   },
   "suites": [
     {
       "title": "shopper site order lookup",
       "tests": [
         {
-          "fullTitle": "shopper site order lookup visit shopper page",
-          "title": "visit shopper page",
-          "duration": 7648,
+          "fullTitle": "shopper site order lookup visit shopper page and type right order number and email, can see Create Returns button",
+          "title": "visit shopper page and type right order number and email, can see Create Returns button",
+          "duration": 6134,
           "result": "passed",
           "err": {}
         }
@@ -27,9 +27,9 @@
   "failures": [],
   "passes": [
     {
-      "fullTitle": "shopper site order lookup visit shopper page",
-      "title": "visit shopper page",
-      "duration": 7648,
+      "fullTitle": "shopper site order lookup visit shopper page and type right order number and email, can see Create Returns button",
+      "title": "visit shopper page and type right order number and email, can see Create Returns button",
+      "duration": 6134,
       "result": "passed",
       "err": {}
     }

@@ -1,10 +1,13 @@
 require("dotenv").config();
 
 const fs = require("fs");
-const SlackWebhook = require("slack-webhook");
-
+// const SlackWebhook = require("slack-webhook");
 // const slack = new SlackWebhook(process.env.SLACK_WEBHOOK_URL_ME);
-const slack = new SlackWebhook(process.env.SLACK_WEEBHOOK_URL_PROJ_RC);
+// const slack = new SlackWebhook(process.env.SLACK_WEEBHOOK_URL_PROJ_RC);
+
+const {IncomingWebhook} = require('@slack/webhook')
+// const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL_ME);
+const slack = new IncomingWebhook(process.env.SLACK_WEEBHOOK_URL_PROJ_RC);
 
 function parseReport() {
   const report = fs.readFileSync("health-check.json", "utf-8");
@@ -43,8 +46,20 @@ if (typeof data !== "undefined" && data.failures.length) {
     };
   });
 }
+// console.log(slack)
+// try {
+//   slack.send({
+//     text: title,
+//     attachments: result
+//   });
+// } catch (error) {
+//   console.error('slack error',error)
+//   throw(error);
+// }
 
-slack.send({
-  text: title,
-  attachments: result
-});
+(async () => {
+  await slack.send({
+    text: title,
+    attachments: result
+  });
+})();

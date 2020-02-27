@@ -4,6 +4,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+
+### `yarn healthcheck`
+
+Runs cypress run and send the test result to slack channel.
+
+
+### `yarn cronChecker`
+
+Runs cypress healthcheck as a cronjob.
+You can setup the time in src/job/testScheduler.js
+
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
