@@ -7,7 +7,9 @@ const fs = require("fs");
 
 const {IncomingWebhook} = require('@slack/webhook')
 // const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL_ME);
-const slack = new IncomingWebhook(process.env.SLACK_WEEBHOOK_URL_PROJ_RC);
+const slack = new IncomingWebhook(process.env.SLACK_WEEBHOOK_URL_PROJ_RC, {
+  icon_emoji: ':bowtie:',
+});
 
 function parseReport() {
   const report = fs.readFileSync("health-check.json", "utf-8");
