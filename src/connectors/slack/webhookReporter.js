@@ -7,7 +7,7 @@ const fs = require("fs");
 
 const {IncomingWebhook} = require('@slack/webhook')
 // const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL_ME);
-const slack = new IncomingWebhook(process.env.SLACK_WEEBHOOK_URL_PROJ_RC, {
+const slack = new IncomingWebhook(process.env.SLACK_WEEBHOOK_URL_MONITOR_RETURNS_PROD, {
   icon_emoji: ':bowtie:',
 });
 
@@ -16,7 +16,7 @@ function parseReport() {
   const data = JSON.parse(report);
 
   return data;
-}
+  }
 
 const data = parseReport();
 

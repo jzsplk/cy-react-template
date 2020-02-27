@@ -1,7 +1,7 @@
 {
   "baseUrl": "https://admine2e.returnscenter.com",
   "projectId": "nkhmz8",
-  "video": false,
+  "video": true,
   "reporter": "mocha-spec-json-output-reporter",
   "reporterOptions": {
     "fileName": "health-check.json"
