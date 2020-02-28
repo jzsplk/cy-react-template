@@ -1,6 +1,7 @@
-cypress/videos/*
 node_modules/*
+cypress/videos/*
+cypress/screenshots/*
 # production
 /build
+cypress/reports/*
 .env
-health-check.json

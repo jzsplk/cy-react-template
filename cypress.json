@@ -2,8 +2,8 @@
   "baseUrl": "https://admine2e.returnscenter.com",
   "projectId": "nkhmz8",
   "video": true,
-  "reporter": "mocha-spec-json-output-reporter",
+  "reporter": "cypress-multi-reporters",
   "reporterOptions": {
-    "fileName": "health-check.json"
+    "configFile": "reporterOpts.json"
   }
 }

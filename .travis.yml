@@ -51,7 +51,7 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep_history: false
-  local_dir: build
+  local_dir: cypress/reports/mocha
   verbose: true
   repo: jzsplk/cy-react-template
   on:

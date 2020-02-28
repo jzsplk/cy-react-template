@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/xuchuan/.config/nvm/10.16.0/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js healthcheck
+  /Users/xuchuan/.config/nvm/10.16.0/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js install
 
 PATH: 
   /Users/xuchuan/.config/nvm/10.16.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/aria2/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/xuchuan/pCodes/cyReact/package.json: Unexpected token / in JSON at position 864
+  SyntaxError: /Users/xuchuan/pCodes/cyReact/package.json: Unexpected token / in JSON at position 1775
       at JSON.parse (<anonymous>)
       at /usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -49,8 +49,8 @@ npm manifest:
       "cypress:run": "cypress run",
       "cypress:run:record": "cypress run --record",
       "cypress:run:record:p": "cypress run --record --parallel",
-      // "healthcheck": "yarn run cypress run --reporter mocha-spec-json-output-reporter --spec 'cypress/integration/shopperPage/**/*'; node src/connectors/slack/webhookReporter.js",
-      "healthycheck": "yarn run cypress run --reporter mocha-spec-json-output-reporter --spec 'cypress/integration/shopperPage/**/*'",
+      "healthcheck": "yarn run cypress run --reporter mochawesome --spec 'cypress/integration/shopperPage/**/*'; node src/connectors/slack/webhookReporter.js",
+      "healthcheck-awesome": "yarn run cypress run --reporter cypress-multi-reporters  --spec 'cypress/integration/shopperPage/**/*'",
       "cronChecker": "node src/job/testScheduler.js"
     },
     "eslintConfig": {
@@ -73,10 +73,12 @@ npm manifest:
       "@types/react-test-renderer": "^16.9.2",
       "awesome-typescript-loader": "^5.2.1",
       "cypress": "^4.0.2",
+      "cypress-multi-reporters": "^1.2.4",
       "dotenv": "^8.2.0",
       "gh-pages": "^2.2.0",
       "lodash": "^4.17.15",
-      "mocha-spec-json-output-reporter": "^1.1.7",
+      // "mocha-spec-json-output-reporter": "^1.1.7",
+      "mochawesome": "^5.0.0",
       "react-test-renderer": "^16.12.0",
       "slack-webhook": "^1.0.0",
       "source-map-loader": "^0.2.4"
@@ -3512,6 +3514,14 @@ Lockfile:
     resolved "https://registry.npmjs.org/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
     integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
   
+  cypress-multi-reporters@^1.2.4:
+    version "1.2.4"
+    resolved "https://registry.npmjs.org/cypress-multi-reporters/-/cypress-multi-reporters-1.2.4.tgz#bf6c95f39f9d2ce210d83e096f452a306bcd49fc"
+    integrity sha512-JTsF02I2KH1HM+cUEKeJih8EtjFv6jWVrYlRlJAnomwE5UqRQ3M7cAuw+zqBfNSTIvhOzNHtN3LyxomfhycuAQ==
+    dependencies:
+      debug "^4.1.1"
+      lodash "^4.17.11"
+  
   cypress@^4.0.2:
     version "4.0.2"
     resolved "https://registry.npmjs.org/cypress/-/cypress-4.0.2.tgz#ede194d7bc73fb449f8de553c9e1db4ca15309ef"
@@ -3584,6 +3594,11 @@ Lockfile:
     version "1.30.1"
     resolved "https://registry.npmjs.org/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
     integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
+  
+  dateformat@^3.0.2:
+    version "3.0.3"
+    resolved "https://registry.npmjs.org/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
+    integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
   
   debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
     version "2.6.9"
@@ -3745,6 +3760,11 @@ Lockfile:
     version "3.5.0"
     resolved "https://registry.yarnpkg.com/diff/-/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
     integrity sha512-A46qtFgd+g7pDZinpnwiRJtxbC1hpgf0uzP3iG89scHk0AUC7A1TGxf5OiiOUv/JMZR8GOt8hL900hV0bOy5xA==
+  
+  diff@^4.0.1:
+    version "4.0.2"
+    resolved "https://registry.npmjs.org/diff/-/diff-4.0.2.tgz#60f3aecb89d5fae520c11aa19efc2bb982aade7d"
+    integrity sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==
   
   diffie-hellman@^5.0.0:
     version "5.0.3"
@@ -4905,6 +4925,11 @@ Lockfile:
     dependencies:
       bindings "^1.5.0"
       nan "^2.12.1"
+  
+  fsu@^1.0.2:
+    version "1.1.1"
+    resolved "https://registry.npmjs.org/fsu/-/fsu-1.1.1.tgz#bd36d3579907c59d85b257a75b836aa9e0c31834"
+    integrity sha512-xQVsnjJ/5pQtcKh+KjUoZGzVWn4uNkchxTF6Lwjr4Gf7nQr8fmUfhKJ62zE77+xQg9xnxi5KUps7XGs+VC986A==
   
   function-bind@^1.1.1:
     version "1.1.1"
@@ -6541,7 +6566,7 @@ Lockfile:
     dependencies:
       jsonify "~0.0.0"
   
-  json-stringify-safe@~5.0.1:
+  json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
     version "5.0.1"
     resolved "https://registry.npmjs.org/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
     integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
@@ -6818,6 +6843,26 @@ Lockfile:
     version "3.0.0"
     resolved "https://registry.npmjs.org/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
     integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
+  
+  lodash.isempty@^4.4.0:
+    version "4.4.0"
+    resolved "https://registry.npmjs.org/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
+    integrity sha1-b4bL7di+TsmHvpqvM8loTbGzHn4=
+  
+  lodash.isfunction@^3.0.8, lodash.isfunction@^3.0.9:
+    version "3.0.9"
+    resolved "https://registry.npmjs.org/lodash.isfunction/-/lodash.isfunction-3.0.9.tgz#06de25df4db327ac931981d1bdb067e5af68d051"
+    integrity sha512-AirXNj15uRIMMPihnkInB4i3NHeb4iBtNg9WRWuK2o31S+ePwwNmDPaTL3o7dTJ+VXNZim7rFs4rxN4YU1oUJw==
+  
+  lodash.isobject@^3.0.2:
+    version "3.0.2"
+    resolved "https://registry.npmjs.org/lodash.isobject/-/lodash.isobject-3.0.2.tgz#3c8fb8d5b5bf4bf90ae06e14f2a530a4ed935e1d"
+    integrity sha1-PI+41bW/S/kK4G4U8qUwpO2TXh0=
+  
+  lodash.isstring@^4.0.1:
+    version "4.0.1"
+    resolved "https://registry.npmjs.org/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
+    integrity sha1-1SfftUVuynzJu5XV2ur4i6VKVFE=
   
   lodash.memoize@^4.1.2:
     version "4.1.2"
@@ -7245,6 +7290,41 @@ Lockfile:
       mkdirp "0.5.1"
       supports-color "5.4.0"
   
+  mochawesome-report-generator@^4.1.0:
+    version "4.1.0"
+    resolved "https://registry.npmjs.org/mochawesome-report-generator/-/mochawesome-report-generator-4.1.0.tgz#f303e6acb5b30fd900f2ed8a0ba2054a034c9c39"
+    integrity sha512-8diUnfzLqMPybIsq3aw3Zc4Npw9W2ZCx8/fMR0ShAXfDTtPH4t2mRykXEWBhsBA5+jM74mjWpwEqY6Pmz+pCsw==
+    dependencies:
+      chalk "^2.4.2"
+      dateformat "^3.0.2"
+      fs-extra "^7.0.0"
+      fsu "^1.0.2"
+      lodash.isfunction "^3.0.8"
+      opener "^1.4.2"
+      prop-types "^15.7.2"
+      react "^16.8.5"
+      react-dom "^16.8.5"
+      tcomb "^3.2.17"
+      tcomb-validation "^3.3.0"
+      validator "^10.11.0"
+      yargs "^13.2.2"
+  
+  mochawesome@^5.0.0:
+    version "5.0.0"
+    resolved "https://registry.npmjs.org/mochawesome/-/mochawesome-5.0.0.tgz#eb3d96e589ccdd30146bbde581fb3deec01bcbec"
+    integrity sha512-1Vb0G8rqURptOZUmU5xLkLUWKYlx97IoMF2/xW18tL08Z1CZaUbzLAGbgq/s3DCn/vOrb8Dy7swb/cszp3Ylpg==
+    dependencies:
+      chalk "^3.0.0"
+      diff "^4.0.1"
+      json-stringify-safe "^5.0.1"
+      lodash.isempty "^4.4.0"
+      lodash.isfunction "^3.0.9"
+      lodash.isobject "^3.0.2"
+      lodash.isstring "^4.0.1"
+      mochawesome-report-generator "^4.1.0"
+      strip-ansi "^6.0.0"
+      uuid "^7.0.0"
+  
   moment-timezone@^0.5.25:
     version "0.5.28"
     resolved "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.28.tgz#f093d789d091ed7b055d82aa81a82467f72e4338"
@@ -7662,6 +7742,11 @@ Lockfile:
     dependencies:
       is-docker "^2.0.0"
       is-wsl "^2.1.1"
+  
+  opener@^1.4.2:
+    version "1.5.1"
+    resolved "https://registry.npmjs.org/opener/-/opener-1.5.1.tgz#6d2f0e77f1a0af0032aca716c2c1fbb8e7e8abed"
+    integrity sha512-goYSy5c2UXE4Ra1xixabeVh1guIX/ZV/YokJksb6q2lubWu6UbvPQ20p542/sFIll1nl8JnCyK9oBaOcCWXwvA==
   
   opn@^5.5.0:
     version "5.5.0"
@@ -9058,6 +9143,16 @@ Lockfile:
       prop-types "^15.6.2"
       scheduler "^0.18.0"
   
+  react-dom@^16.8.5:
+    version "16.13.0"
+    resolved "https://registry.npmjs.org/react-dom/-/react-dom-16.13.0.tgz#cdde54b48eb9e8a0ca1b3dc9943d9bb409b81866"
+    integrity sha512-y09d2c4cG220DzdlFkPTnVvGTszVvNpC73v+AaLGLHbkpy3SSgvYq8x0rNwPJ/Rk/CicTNgk0hbHNw1gMEZAXg==
+    dependencies:
+      loose-envify "^1.1.0"
+      object-assign "^4.1.1"
+      prop-types "^15.6.2"
+      scheduler "^0.19.0"
+  
   react-error-overlay@^6.0.6:
     version "6.0.6"
     resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.6.tgz#ac4d9dc4c1b5c536c2c312bf66aa2b09bfa384e2"
@@ -9142,6 +9237,15 @@ Lockfile:
     version "16.12.0"
     resolved "https://registry.npmjs.org/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
     integrity sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==
+    dependencies:
+      loose-envify "^1.1.0"
+      object-assign "^4.1.1"
+      prop-types "^15.6.2"
+  
+  react@^16.8.5:
+    version "16.13.0"
+    resolved "https://registry.npmjs.org/react/-/react-16.13.0.tgz#d046eabcdf64e457bbeed1e792e235e1b9934cf7"
+    integrity sha512-TSavZz2iSLkq5/oiE7gnFzmURKZMltmi193rm5HEoUDAXpzT9Kzw6oNZnGoai/4+fUnm7FqS5dwgUL34TujcWQ==
     dependencies:
       loose-envify "^1.1.0"
       object-assign "^4.1.1"
@@ -9682,6 +9786,14 @@ Lockfile:
     version "0.18.0"
     resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.18.0.tgz#5901ad6659bc1d8f3fdaf36eb7a67b0d6746b1c4"
     integrity sha512-agTSHR1Nbfi6ulI0kYNK0203joW2Y5W4po4l+v03tOoiJKpTBbxpNhWDvqc/4IcOw+KLmSiQLTasZ4cab2/UWQ==
+    dependencies:
+      loose-envify "^1.1.0"
+      object-assign "^4.1.1"
+  
+  scheduler@^0.19.0:
+    version "0.19.0"
+    resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.19.0.tgz#a715d56302de403df742f4a9be11975b32f5698d"
+    integrity sha512-xowbVaTPe9r7y7RUejcK73/j8tt2jfiyTednOvHbA8JoClvMYCp+r8QegLwK/n8zWQAtZb1fFnER4XLBZXrCxA==
     dependencies:
       loose-envify "^1.1.0"
       object-assign "^4.1.1"
@@ -10446,6 +10558,18 @@ Lockfile:
     resolved "https://registry.npmjs.org/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"
     integrity sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA==
   
+  tcomb-validation@^3.3.0:
+    version "3.4.1"
+    resolved "https://registry.npmjs.org/tcomb-validation/-/tcomb-validation-3.4.1.tgz#a7696ec176ce56a081d9e019f8b732a5a8894b65"
+    integrity sha512-urVVMQOma4RXwiVCa2nM2eqrAomHROHvWPuj6UkDGz/eb5kcy0x6P0dVt6kzpUZtYMNoAqJLWmz1BPtxrtjtrA==
+    dependencies:
+      tcomb "^3.0.0"
+  
+  tcomb@^3.0.0, tcomb@^3.2.17:
+    version "3.2.29"
+    resolved "https://registry.npmjs.org/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
+    integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
+  
   terser-webpack-plugin@2.3.4:
     version "2.3.4"
     resolved "https://registry.npmjs.org/terser-webpack-plugin/-/terser-webpack-plugin-2.3.4.tgz#ac045703bd8da0936ce910d8fb6350d0e1dee5fe"
@@ -10899,6 +11023,11 @@ Lockfile:
     resolved "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
     integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
   
+  uuid@^7.0.0:
+    version "7.0.1"
+    resolved "https://registry.npmjs.org/uuid/-/uuid-7.0.1.tgz#95ed6ff3d8c881cbf85f0f05cc3915ef994818ef"
+    integrity sha512-yqjRXZzSJm9Dbl84H2VDHpM3zMjzSJQ+hn6C4zqd5ilW+7P4ZmLEEqwho9LjP+tGuZlF4xrHQXT0h9QZUS/pWA==
+  
   v8-compile-cache@^2.0.3:
     version "2.1.0"
     resolved "https://registry.npmjs.org/v8-compile-cache/-/v8-compile-cache-2.1.0.tgz#e14de37b31a6d194f5690d67efc4e7f6fc6ab30e"
@@ -10911,6 +11040,11 @@ Lockfile:
     dependencies:
       spdx-correct "^3.0.0"
       spdx-expression-parse "^3.0.0"
+  
+  validator@^10.11.0:
+    version "10.11.0"
+    resolved "https://registry.npmjs.org/validator/-/validator-10.11.0.tgz#003108ea6e9a9874d31ccc9e5006856ccd76b228"
+    integrity sha512-X/p3UZerAIsbBfN/IwahhYaBbY68EN/UQBWHtsbXGT5bfrH/p4NQzUCG1kF/rtKaNpnJ7jAu6NGTdSNtyNIXMw==
   
   vary@~1.1.2:
     version "1.1.2"
@@ -11453,7 +11587,7 @@ Lockfile:
       y18n "^3.2.1 || ^4.0.0"
       yargs-parser "^11.1.1"
   
-  yargs@^13.3.0:
+  yargs@^13.2.2, yargs@^13.3.0:
     version "13.3.0"
     resolved "https://registry.npmjs.org/yargs/-/yargs-13.3.0.tgz#4c657a55e07e5f2cf947f8a366567c04a0dedc83"
     integrity sha512-2eehun/8ALW8TLoIl7MVaRUrg+yCnenu8B4kBlRxj3GJGDKU1Og7sMXPNm1BYyM1DOJmTZ4YeN/Nwxv+8XJsUA==
