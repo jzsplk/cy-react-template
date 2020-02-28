@@ -16,10 +16,7 @@ const reportToSlack = async function(title, result) {
 };
 
 function parseReport() {
-  const report = fs.readFileSync(
-    "cypress/reports/mocha/mochawesome.json",
-    "utf-8"
-  );
+  const report = fs.readFileSync("cypress/reports/mocha/index.json", "utf-8");
   const data = JSON.parse(report);
 
   return data;
