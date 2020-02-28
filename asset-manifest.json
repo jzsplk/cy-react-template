@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/cy-react-template/static/css/main.d1b05096.chunk.css",
+    "main.js": "/cy-react-template/static/js/main.89003f43.chunk.js",
+    "main.js.map": "/cy-react-template/static/js/main.89003f43.chunk.js.map",
+    "runtime-main.js": "/cy-react-template/static/js/runtime-main.356e8c93.js",
+    "runtime-main.js.map": "/cy-react-template/static/js/runtime-main.356e8c93.js.map",
+    "static/js/2.b6fabe4d.chunk.js": "/cy-react-template/static/js/2.b6fabe4d.chunk.js",
+    "static/js/2.b6fabe4d.chunk.js.map": "/cy-react-template/static/js/2.b6fabe4d.chunk.js.map",
+    "index.html": "/cy-react-template/index.html",
+    "precache-manifest.f75b2d13cab4cd6cf1bd9747b15df04a.js": "/cy-react-template/precache-manifest.f75b2d13cab4cd6cf1bd9747b15df04a.js",
+    "service-worker.js": "/cy-react-template/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/cy-react-template/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.b6fabe4d.chunk.js.LICENSE.txt": "/cy-react-template/static/js/2.b6fabe4d.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/cy-react-template/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.356e8c93.js",
+    "static/js/2.b6fabe4d.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.89003f43.chunk.js"
+  ]
+}
