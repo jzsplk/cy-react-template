@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- 11.10.1
+  - 11.10.1
 cache:
   npm: true
   yarn: true
@@ -14,37 +14,38 @@ install:
 
 defaults: &defaults
   script:
-      #   ## print all Travis environment variables for debugging
-      - yarn start &
-      # - yarn cypress:record:parallel --group $STAGE_NAME
-      - yarn cypress:run:record:p --key $CYPRESS_RECORD_KEY --spec 'cypress/integration/shopperPage/**/*'
-      # - yarn cypress:server:ci:parallel --group $STAGE_NAME
-      # after all tests finish running we need
-      # to kill all background jobs (like "npm start &")
-      - yarn test
-      - yarn run build
-      - kill $(jobs -p) || true
+    #   ## print all Travis environment variables for debugging
+    - yarn start &
+    # - yarn cypress:record:parallel --group $STAGE_NAME
+    - yarn cypress:run:record:p --key $CYPRESS_RECORD_KEY --spec 'cypress/integration/shopperPage/**/*'
+    # - yarn cypress:server:ci:parallel --group $STAGE_NAME
+    # after all tests finish running we need
+    # to kill all background jobs (like "npm start &")
+    - yarn test
+    - yarn run build
+    - yarn healthcheck
+    - kill $(jobs -p) || true
 
 # script:
 #   - yarn test
 #   - yarn run build
 
 jobs:
-    include:
-        - script:
-          name: 'Cypress Tests 1t thread'
-          env:
-              - STAGE_NAME="2x-electron on Travis CI"
-              # - STAGE_NAME="feature"
-              - CACHE_DIR=cache
-          <<: *defaults
-        - script:
-          name: 'Cypress Tests 2t thread'
-          env:
-              - STAGE_NAME="2x-electron on Travis CI"
-              # - STAGE_NAME="billing"
-              - CACHE_DIR=cache
-          <<: *defaults
+  include:
+    - script:
+      name: "Cypress Tests 1t thread"
+      env:
+        - STAGE_NAME="2x-electron on Travis CI"
+        # - STAGE_NAME="feature"
+        - CACHE_DIR=cache
+      <<: *defaults
+    - script:
+      name: "Cypress Tests 2t thread"
+      env:
+        - STAGE_NAME="2x-electron on Travis CI"
+        # - STAGE_NAME="billing"
+        - CACHE_DIR=cache
+      <<: *defaults
 
 deploy:
   provider: pages
@@ -55,4 +56,4 @@ deploy:
   verbose: true
   repo: jzsplk/cy-react-template
   on:
-   branch: master
+    branch: master
