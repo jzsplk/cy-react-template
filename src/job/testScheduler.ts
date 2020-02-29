@@ -5,7 +5,7 @@ const exec = util.promisify(require("child_process").exec);
 const healthScheduleJob = schedule.scheduleJob("1 * * * * *", async function() {
   console.log("Start health check from QA bot returnsenter");
   try {
-    const { stdout, stderr } = await exec("yarn healthcheck");
+    const { stdout, stderr } = await exec("yarn cli");
     console.log("stdout:", stdout);
     stderr && console.error("stderr:", stderr);
   } catch (error) {
