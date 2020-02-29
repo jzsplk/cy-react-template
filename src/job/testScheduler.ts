@@ -13,3 +13,5 @@ const healthScheduleJob = schedule.scheduleJob("1 * * * * *", async function() {
     throw error;
   }
 });
+
+export {};

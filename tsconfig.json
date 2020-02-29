@@ -1,27 +1,35 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "paths": {
-      "*": ["src/*"]
-    },
-    "rootDirs": ["src", "cypress"],
+    "rootDirs": [
+      "src",
+      "cypress"
+    ],
     "outDir": "./built",
-    // "allowJs": true,
     "target": "es5",
     "jsx": "preserve",
     "esModuleInterop": true,
     "downlevelIteration": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": false,
-    "noEmit": true
+    "isolatedModules": true,
+    "noEmit": true,
+    "allowJs": true
   },
-  "include": ["src"],
-  "files": ["src/slack/index.ts"]
+  "include": [
+    "src"
+  ],
+  "files": [
+    "src/slack/index.ts"
+  ]
 }

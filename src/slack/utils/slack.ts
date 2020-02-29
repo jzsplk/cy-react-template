@@ -6,7 +6,9 @@ import { webhookInitialArgs } from "./messageConstructors";
 import { config } from "dotenv";
 config();
 
+// add webhook url in env
 const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL_ME;
+
 console.log("the webhook url is", SLACK_WEBHOOK_URL);
 
 export async function sendMessage(_reportDir: string) {
@@ -81,21 +83,7 @@ export function attachmentReports(
       return {
         color: "#36a64f",
         // fallback: `Report available at ${reportHTMLUrl}`,
-        text: `Total Passed:  ${totalPasses}`,
-        actions: [
-          {
-            type: "button",
-            text: "Test Report",
-            // url: `${reportHTMLUrl}`,
-            style: "primary"
-          },
-          {
-            type: "button",
-            text: "CircleCI Logs",
-            // url: `${CI_BUILD_URL}`,
-            style: "primary"
-          }
-        ]
+        text: `Total Passed:  ${totalPasses}`
       };
     }
     case TestStatus.failed: {
@@ -103,36 +91,14 @@ export function attachmentReports(
         color: "#ff0000",
         // fallback: `Report available at ${reportHTMLUrl}`,
         title: `Total Failed: ${totalFailures}`,
-        text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `,
-        actions: [
-          {
-            type: "button",
-            text: "Test Report",
-            // url: `${reportHTMLUrl}`,
-            style: "primary"
-          },
-          {
-            type: "button",
-            text: "CircleCI Logs",
-            // url: `${CI_BUILD_URL}`,
-            style: "primary"
-          }
-        ]
+        text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `
       };
     }
     case TestStatus.error: {
       return {
         color: "#ff0000",
         // fallback: `Build Log available at ${CI_BUILD_URL}`,
-        text: `Total Passed:  ${totalPasses} `,
-        actions: [
-          {
-            type: "button",
-            text: "CircleCI Logs",
-            // url: `${CI_BUILD_URL}`,
-            style: "danger"
-          }
-        ]
+        text: `Total Passed:  ${totalPasses} `
       };
     }
     default: {
