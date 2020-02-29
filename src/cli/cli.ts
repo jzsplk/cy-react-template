@@ -36,24 +36,24 @@ const options = {
 
 console.log("running with option", options);
 
-CypressApi.run(options)
-  .then(async results => {
-    const generatedReport = await Promise.resolve(
-      generateReport({
-        files: ["cypress/reports/mocha/*.json"],
-        inline: true,
-        saveJson: true
-      })
-    );
-    console.log("Merged report", generatedReport);
-    return generatedReport;
-  })
-  .then(
-    async delFiles => await del(["cypress/reports/mocha/mochawesome_*.json"])
-  )
-  .then(async generatedReport => {
-    console.log("report here is", generatedReport);
-    // send report to slack
+const runner = async function() {
+  try {
+    await CypressApi.run(options);
+
+    const generatedReport = await generateReport({
+      files: ["cypress/reports/mocha/*.json"],
+      inline: true,
+      saveJson: true
+    });
+
+    console.log("generated report: ", generatedReport);
+
+    await del(["cypress/reports/mocha/mochawesome_*.json"]);
+
     await sendMessage("mochawesome-report");
-  })
-  .catch(err => console.log(err));
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+runner();
