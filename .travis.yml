@@ -57,3 +57,5 @@ deploy:
   repo: jzsplk/cy-react-template
   on:
     branch: master
+addons:
+  artifacts: true
