@@ -5,24 +5,12 @@
   "homepage": "https://jzsplk.github.io/cy-react-template/",
   "dependencies": {
     "@slack/webhook": "^5.0.2",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "@types/node-schedule": "^1.3.0",
     "core-util-is": "^1.0.2",
     "node-schedule": "^1.3.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.4.0",
     "typescript": "^3.8.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "cypress:run:record": "cypress run --record",
@@ -30,9 +18,7 @@
     "cli": "rimraf cypress/reports && ts-node src/cli/cli.ts --spec 'cypress/integration/shopperPage/**/*'",
     "cronChecker": "ts-node src/job/testScheduler.ts"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
+  "eslintConfig": {},
   "browserslist": {
     "production": [
       ">0.2%",
@@ -48,10 +34,11 @@
   "devDependencies": {
     "@types/jest": "^25.1.3",
     "@types/lodash": "^4.14.149",
-    "@types/react-test-renderer": "^16.9.2",
+    "@types/node": "^13.7.7",
     "awesome-typescript-loader": "^5.2.1",
     "cypress": "^4.0.2",
     "cypress-multi-reporters": "^1.2.4",
+    "del": "^5.1.0",
     "dotenv": "^8.2.0",
     "gh-pages": "^2.2.0",
     "lodash": "^4.17.15",
@@ -59,7 +46,7 @@
     "mocha-junit-reporter": "^1.23.3",
     "mochawesome": "^5.0.0",
     "mochawesome-merge": "^4.0.1",
-    "react-test-renderer": "^16.12.0",
+    "nodemon": "^2.0.2",
     "source-map-loader": "^0.2.4",
     "ts-node": "^8.6.2",
     "yargs": "^15.1.0"

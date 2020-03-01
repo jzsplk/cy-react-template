@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /// <reference path='../../node_modules/cypress/types/cypress-npm-api.d.ts'/>
-import * as CypressApi from "cypress";
+// import * as CypressApi from "cypress";
 import { sendMessage } from "../slack/utils/slack";
 import { omit } from "lodash";
+const CypressApi = require('cypress')
 
 const marge = require("mochawesome-report-generator");
 const { merge } = require("mochawesome-merge");
@@ -36,7 +37,7 @@ const options = {
 
 console.log("running with option", options);
 
-const runner = async function() {
+const runner = async function () {
   try {
     await CypressApi.run(options);
 
