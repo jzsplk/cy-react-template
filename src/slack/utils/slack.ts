@@ -106,18 +106,19 @@ export function attachmentReports(
           },
           {
             text: `${process.env.TRAVIS_APP_HOST}`,
-            type: 'button',
-            url: `${process.env.TRAVIS_APP_HOST}`,
+            type: 'select', // url: `${process.env.TRAVIS_APP_HOST}`,
+            options: [{ text: `${process.env.TRAVIS_APP_HOST}`, value: `${process.env.TRAVIS_APP_HOST}` }]
           },
           {
             text: `${process.env.TRAVIS_BUILD_DIR}`,
-            type: 'button',
+            type: 'select',
             url: `${process.env.TRAVIS_BUILD_DIR}`,
+            options: [{ text: `${process.env.TRAVIS_BUILD_DIR}`, value: `${process.env.TRAVIS_BUILD_DIR}` }]
           },
           {
             text: `${process.env.TRAVIS_COMMIT}`,
-            type: 'button',
-            url: `${process.env.TRAVIS_COMMIT}`,
+            type: 'select',
+            options: [{ text: `${process.env.TRAVIS_COMMIT}`, value: `${process.env.TRAVIS_COMMIT}}`],
           },
         ]
       };
@@ -125,8 +126,8 @@ export function attachmentReports(
     case TestStatus.error: {
       return {
         color: "#ff0000",
-        // fallback: `Build Log available at ${CI_BUILD_URL}`,
-        text: `Total Passed:  ${totalPasses} `
+        // fallback: `Build Log available at ${ CI_BUILD_URL }`,
+        text: `Total Passed: ${totalPasses} `
       };
     }
     default: {
