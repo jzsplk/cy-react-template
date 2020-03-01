@@ -95,7 +95,8 @@ export function attachmentReports(
         actions: [{
           text: 'see:',
           type: 'button',
-          url: `${process.env.TRAVIS_REPO_SLUG}/${process.env.TRAVIS_BUILD_NUMBER}/${process.env.TRAVIS_JOB_NUMBER}`,
+          // url: `${process.env.TRAVIS_REPO_SLUG}/${process.env.TRAVIS_BUILD_NUMBER}/${process.env.TRAVIS_JOB_NUMBER}`,
+          url: 'https://www.google.com'
         }]
       };
     }
