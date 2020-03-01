@@ -62,8 +62,80 @@ export function webhookSendArgs(
 ) {
   argsWebhookSend = {
     attachments: messageAttachments,
-    unfurl_links: false,
-    unfurl_media: false
+    blocks: [
+
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "Danny Torrence left the following review for your property:"
+        }
+      },
+      // {
+      //   type: 'section', text: {
+      //     type: 'plain_text',
+      //     emoji: true,
+      //     text: 'look like you check your BDD test.'
+      //   }
+      // },
+      // { type: 'divider' },
+      // {
+      //   type: 'section',
+      //   text: {
+      //     type: 'mrkdwn',
+      //     text: `*<build_web_url${`${process.env.TRAVIS_BUILD_WEB_URL}`}| travis commit${process.env.TRAVIS_COMMIT}>*\n${new Date().toLocaleDateString()}`
+      //   },
+      //   accessory: {
+      //     type: 'image',
+      //     image_url: "https://a.slack-edge.com/80588/img/api/incoming_webhooks_permission_screen.png",
+      //     alt_text: 'logo'
+      //   }
+      // },
+      // {
+      //   type: 'context',
+      //   elements: [
+      //     {
+      //       type: "mrkdwn",
+      //       text: `*build_dir${process.env.TRAVIS_BUILD_DIR}*`
+      //     }
+      //   ]
+      // },
+      // { type: 'divider' },
+      // {
+      //   type: 'section',
+      //   text: {
+      //     type: 'mrkdwn',
+      //     text: `*check build ${process.env.TRAVIS_BUILD_ID}*`,
+      //   },
+      //   accessory: {
+      //     type: 'button',
+      //     text: {
+      //       type: 'plain_text',
+      //       emoji: true,
+      //       text: 'check build'
+      //     },
+      //     url: `${process.env.TRAVIS_BUILD_WEB_URL ?? ''}`
+      //   }
+      // },
+      // {
+      //   type: 'section',
+      //   text: {
+      //     type: 'mrkdwn',
+      //     text: `*check job ${process.env.TRAVIS_JOB_ID}*`,
+      //   },
+      //   accessory: {
+      //     type: 'button',
+      //     text: {
+      //       type: 'plain_text',
+      //       emoji: true,
+      //       text: 'check job'
+      //     },
+      //     url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`
+      //   }
+      // }
+    ]
+    // unfurl_links: false,
+    // unfurl_media: false
   };
   return argsWebhookSend;
 }
@@ -92,77 +164,77 @@ export function attachmentReports(
         // fallback: `Report available at ${reportHTMLUrl}`,
         title: `Total Failed: ${totalFailures}`,
         text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `,
-        blocks: [
-          {
-            "type": "section",
-            "text": {
-              "type": "mrkdwn",
-              "text": "Danny Torrence left the following review for your property:"
-            }
-          },
-          // {
-          //   type: 'section', text: {
-          //     type: 'plain_text',
-          //     emoji: true,
-          //     text: 'look like you check your BDD test.'
-          //   }
-          // },
-          // { type: 'divider' },
-          // {
-          //   type: 'section',
-          //   text: {
-          //     type: 'mrkdwn',
-          //     text: `*<build_web_url${`${process.env.TRAVIS_BUILD_WEB_URL}`}| travis commit${process.env.TRAVIS_COMMIT}>*\n${new Date().toLocaleDateString()}`
-          //   },
-          //   accessory: {
-          //     type: 'image',
-          //     image_url: "https://a.slack-edge.com/80588/img/api/incoming_webhooks_permission_screen.png",
-          //     alt_text: 'logo'
-          //   }
-          // },
-          // {
-          //   type: 'context',
-          //   elements: [
-          //     {
-          //       type: "mrkdwn",
-          //       text: `*build_dir${process.env.TRAVIS_BUILD_DIR}*`
-          //     }
-          //   ]
-          // },
-          // { type: 'divider' },
-          // {
-          //   type: 'section',
-          //   text: {
-          //     type: 'mrkdwn',
-          //     text: `*check build ${process.env.TRAVIS_BUILD_ID}*`,
-          //   },
-          //   accessory: {
-          //     type: 'button',
-          //     text: {
-          //       type: 'plain_text',
-          //       emoji: true,
-          //       text: 'check build'
-          //     },
-          //     url: `${process.env.TRAVIS_BUILD_WEB_URL ?? ''}`
-          //   }
-          // },
-          // {
-          //   type: 'section',
-          //   text: {
-          //     type: 'mrkdwn',
-          //     text: `*check job ${process.env.TRAVIS_JOB_ID}*`,
-          //   },
-          //   accessory: {
-          //     type: 'button',
-          //     text: {
-          //       type: 'plain_text',
-          //       emoji: true,
-          //       text: 'check job'
-          //     },
-          //     url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`
-          //   }
-          // }
-        ],
+        // blocks: [
+        //   {
+        //     "type": "section",
+        //     "text": {
+        //       "type": "mrkdwn",
+        //       "text": "Danny Torrence left the following review for your property:"
+        //     }
+        //   },
+        // {
+        //   type: 'section', text: {
+        //     type: 'plain_text',
+        //     emoji: true,
+        //     text: 'look like you check your BDD test.'
+        //   }
+        // },
+        // { type: 'divider' },
+        // {
+        //   type: 'section',
+        //   text: {
+        //     type: 'mrkdwn',
+        //     text: `*<build_web_url${`${process.env.TRAVIS_BUILD_WEB_URL}`}| travis commit${process.env.TRAVIS_COMMIT}>*\n${new Date().toLocaleDateString()}`
+        //   },
+        //   accessory: {
+        //     type: 'image',
+        //     image_url: "https://a.slack-edge.com/80588/img/api/incoming_webhooks_permission_screen.png",
+        //     alt_text: 'logo'
+        //   }
+        // },
+        // {
+        //   type: 'context',
+        //   elements: [
+        //     {
+        //       type: "mrkdwn",
+        //       text: `*build_dir${process.env.TRAVIS_BUILD_DIR}*`
+        //     }
+        //   ]
+        // },
+        // { type: 'divider' },
+        // {
+        //   type: 'section',
+        //   text: {
+        //     type: 'mrkdwn',
+        //     text: `*check build ${process.env.TRAVIS_BUILD_ID}*`,
+        //   },
+        //   accessory: {
+        //     type: 'button',
+        //     text: {
+        //       type: 'plain_text',
+        //       emoji: true,
+        //       text: 'check build'
+        //     },
+        //     url: `${process.env.TRAVIS_BUILD_WEB_URL ?? ''}`
+        //   }
+        // },
+        // {
+        //   type: 'section',
+        //   text: {
+        //     type: 'mrkdwn',
+        //     text: `*check job ${process.env.TRAVIS_JOB_ID}*`,
+        //   },
+        //   accessory: {
+        //     type: 'button',
+        //     text: {
+        //       type: 'plain_text',
+        //       emoji: true,
+        //       text: 'check job'
+        //     },
+        //     url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`
+        //   }
+        // }
+        // ],
       };
     }
     case TestStatus.error: {
