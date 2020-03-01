@@ -92,59 +92,22 @@ export function attachmentReports(
         // fallback: `Report available at ${reportHTMLUrl}`,
         title: `Total Failed: ${totalFailures}`,
         // text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `,
-        text: `details`,
-        blocks: [{
-          type: "section", text: {
-            type: 'mrkdwn',
-            text: `${process.env.TRAVIS_APP_HOST}`
-          },
-        }, {
-          type: "actions",
-          elements: [{ type: 'button', url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}` }]
-        }, {
-          type: 'section',
-          text: {
-            type: "mrkdwn",
-            text: `${process.env.TRAVIS_BUILD_DIR}`
-          }
-        }, {
-          type: 'divider'
-        }, {
-          type: 'section',
-          text: {
-            type: "mrkdwn",
-            text: `${process.env.TRAVIS_COMMIT}`
-          }
-        }, {
-          type: 'file',
-          source: `${process.env.TRAVIS_BUILD_DIR}/mochawesome-report/mochawesome.json`
-        }],
+        text: `${process.env.TRAVIS_COMMIT}${process.env.TRAVIS_APP_HOST}${process.env.TRAVIS_BUILD_DIR}${process.env.TRAVIS_BUILD_WEB_URL}`,
         actions: [
           {
-            text: `job details`,
+            text: `${process.env.TRAVIS_COMMIT}${process.env.TRAVIS_APP_HOST}${process.env.TRAVIS_BUILD_DIR}`,
             type: 'button',
             url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`,
           },
           {
-            text: `${process.env.TRAVIS_BUILD_WEB_URL}`,
+            text: `see details for this build`,
             type: 'button',
             url: `${process.env.TRAVIS_BUILD_WEB_URL}`,
           },
           // {
           //   text: `${process.env.TRAVIS_APP_HOST}`,
-          //   type: 'select', // url: `${process.env.TRAVIS_APP_HOST}`,
-          //   options: [{ text: `${process.env.TRAVIS_APP_HOST}`, value: `${process.env.TRAVIS_APP_HOST}` }]
-          // },
-          // {
-          //   text: `${process.env.TRAVIS_BUILD_DIR}`,
-          //   type: 'select',
-          //   url: `${process.env.TRAVIS_BUILD_DIR}`,
-          //   options: [{ text: `${process.env.TRAVIS_BUILD_DIR}`, value: `${process.env.TRAVIS_BUILD_DIR}` }]
-          // },
-          // {
-          //   text: `${process.env.TRAVIS_COMMIT}`,
-          //   type: 'select',
-          //   options: [{ text: `${process.env.TRAVIS_COMMIT}`, value: `${process.env.TRAVIS_COMMIT}` }],
+          //   type: 'button',
+          //   url: `${process.env.TRAVIS_APP_HOST}`,
           // },
         ]
       };
@@ -152,8 +115,8 @@ export function attachmentReports(
     case TestStatus.error: {
       return {
         color: "#ff0000",
-        // fallback: `Build Log available at ${ CI_BUILD_URL }`,
-        text: `Total Passed: ${totalPasses} `
+        // fallback: `Build Log available at ${CI_BUILD_URL}`,
+        text: `Total Passed:  ${totalPasses} `
       };
     }
     default: {
