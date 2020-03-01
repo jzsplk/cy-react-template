@@ -65,8 +65,7 @@ export function webhookSendArgs(
     blocks: [
       {
         type: 'section', text: {
-          type: 'plain_text',
-          emoji: true,
+          type: 'mrkdwn',
           text: `:fire: look like you better check your BDD tests :triumph: on [github](https://github.com/${process.env.TRAVIS_REPO_SLUG})`
         }
       },
