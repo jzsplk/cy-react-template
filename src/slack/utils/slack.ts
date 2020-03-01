@@ -93,6 +93,13 @@ export function attachmentReports(
         title: `Total Failed: ${totalFailures}`,
         text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `,
         blocks: [
+          {
+            "type": "section",
+            "text": {
+              "type": "mrkdwn",
+              "text": "Danny Torrence left the following review for your property:"
+            }
+          },
           // {
           //   type: 'section', text: {
           //     type: 'plain_text',
@@ -123,38 +130,38 @@ export function attachmentReports(
           //   ]
           // },
           // { type: 'divider' },
-          {
-            type: 'section',
-            text: {
-              type: 'mrkdwn',
-              text: `*check build ${process.env.TRAVIS_BUILD_ID}*`,
-            },
-            accessory: {
-              type: 'button',
-              text: {
-                type: 'plain_text',
-                emoji: true,
-                text: 'check build'
-              },
-              url: `${process.env.TRAVIS_BUILD_WEB_URL ?? ''}`
-            }
-          },
-          {
-            type: 'section',
-            text: {
-              type: 'mrkdwn',
-              text: `*check job ${process.env.TRAVIS_JOB_ID}*`,
-            },
-            accessory: {
-              type: 'button',
-              text: {
-                type: 'plain_text',
-                emoji: true,
-                text: 'check job'
-              },
-              url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`
-            }
-          }
+          // {
+          //   type: 'section',
+          //   text: {
+          //     type: 'mrkdwn',
+          //     text: `*check build ${process.env.TRAVIS_BUILD_ID}*`,
+          //   },
+          //   accessory: {
+          //     type: 'button',
+          //     text: {
+          //       type: 'plain_text',
+          //       emoji: true,
+          //       text: 'check build'
+          //     },
+          //     url: `${process.env.TRAVIS_BUILD_WEB_URL ?? ''}`
+          //   }
+          // },
+          // {
+          //   type: 'section',
+          //   text: {
+          //     type: 'mrkdwn',
+          //     text: `*check job ${process.env.TRAVIS_JOB_ID}*`,
+          //   },
+          //   accessory: {
+          //     type: 'button',
+          //     text: {
+          //       type: 'plain_text',
+          //       emoji: true,
+          //       text: 'check job'
+          //     },
+          //     url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`
+          //   }
+          // }
         ],
       };
     }
