@@ -118,7 +118,7 @@ export function attachmentReports(
           {
             text: `${process.env.TRAVIS_COMMIT}`,
             type: 'select',
-            options: [{ text: `${process.env.TRAVIS_COMMIT}`, value: `${process.env.TRAVIS_COMMIT}}`],
+            options: [{ text: `${process.env.TRAVIS_COMMIT}`, value: `${process.env.TRAVIS_COMMIT}` }],
           },
         ]
       };
