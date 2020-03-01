@@ -45,16 +45,16 @@ jobs:
         - CACHE_DIR=cache
       <<: *defaults
 
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep_history: false
-  local_dir: build
-  verbose: true
-  repo: jzsplk/cy-react-template
-  on:
-    branch: master
+# deploy:
+#   provider: pages
+#   skip-cleanup: true
+#   github-token: $GITHUB_TOKEN
+#   keep_history: false
+#   local_dir: build
+#   verbose: true
+#   repo: jzsplk/cy-react-template
+#   on:
+#     branch: master
 addons:
   artifacts:
     paths:
