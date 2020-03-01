@@ -91,11 +91,12 @@ export function attachmentReports(
         color: "#ff0000",
         // fallback: `Report available at ${reportHTMLUrl}`,
         title: `Total Failed: ${totalFailures}`,
-        text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `,
+        // text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `,
+        text: `${process.env.TRAVIS_BUILD_NUMBER}${process.env.TRAVIS_COMMIT}${process.env.TRAVIS_APP_HOST}${process.env.TRAVIS_BUILD_DIR}${process.env.TRAVIS_BUILD_WEB_URL}`,
         actions: [{
-          text: `${process.env.TRAVIS_BUILD_NUMBER}${process.env.TRAVIS_COMMIT}${process.env.TRAVIS_APP_HOST}${process.env.TRAVIS_BUILD_DIR}`,
+          text: `${process.env.TRAVIS_COMMIT}${process.env.TRAVIS_APP_HOST}${process.env.TRAVIS_BUILD_DIR}`,
           type: 'button',
-          url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_NUMBER}`,
+          url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`,
           // url: 'https://www.google.com'
         }]
       };
