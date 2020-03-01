@@ -15,9 +15,9 @@ install:
 defaults: &defaults
   script:
     #   ## print all Travis environment variables for debugging
-    - yarn start &
+    # - yarn start &
     # - yarn cypress:record:parallel --group $STAGE_NAME
-    - yarn cypress:run:record:p --key $CYPRESS_RECORD_KEY --spec 'cypress/integration/shopperPage/**/*'
+    # - yarn cypress:run:record:p --key $CYPRESS_RECORD_KEY --spec 'cypress/integration/shopperPage/**/*'
     # - yarn cypress:server:ci:parallel --group $STAGE_NAME
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
