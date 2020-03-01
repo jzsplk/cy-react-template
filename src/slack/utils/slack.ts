@@ -93,9 +93,9 @@ export function attachmentReports(
         title: `Total Failed: ${totalFailures}`,
         text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `,
         actions: [{
-          text: 'see:',
+          text: `${process.env.TRAVIS_BUILD_NUMBER}${process.env.TRAVIS_COMMIT}${process.env.TRAVIS_APP_HOST}${process.env.TRAVIS_BUILD_DIR}`,
           type: 'button',
-          url: `https://travis-ci.org/jzsplk/${process.env.TRAVIS_REPO_SLUG}/${process.env.TRAVIS_BUILD_NUMBER}/${process.env.TRAVIS_JOB_NUMBER}`,
+          url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_NUMBER}`,
           // url: 'https://www.google.com'
         }]
       };
