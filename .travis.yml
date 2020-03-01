@@ -56,4 +56,8 @@ deploy:
   on:
     branch: master
 addons:
-  artifacts: true
+  artifacts:
+    working_dir: mochawesome-report
+    target_paths: gdpr
+    s3_region: us-east-2
+    debug: true
