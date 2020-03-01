@@ -94,15 +94,26 @@ export function attachmentReports(
         // text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `,
         text: `details`,
         actions: [
+          // {
+          //   text: `job details`,
+          //   type: 'button',
+          //   url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`,
+          // },
+          // {
+          //   text: `${process.env.TRAVIS_BUILD_WEB_URL}`,
+          //   type: 'button',
+          //   url: `${process.env.TRAVIS_BUILD_WEB_URL}`,
+          // },
           {
-            text: `job details`,
-            type: 'button',
-            url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`,
-          },
-          {
-            text: `${process.env.TRAVIS_BUILD_WEB_URL}`,
-            type: 'button',
-            url: `${process.env.TRAVIS_BUILD_WEB_URL}`,
+            text: 'try select',
+            type: 'select',
+            options: [{
+              text: 'job',
+              value: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`
+            }, {
+              text: 'build',
+              value: `${process.env.TRAVIS_BUILD_WEB_URL}`
+            }]
           },
           {
             text: `${process.env.TRAVIS_APP_HOST}`,
