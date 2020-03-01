@@ -91,7 +91,12 @@ export function attachmentReports(
         color: "#ff0000",
         // fallback: `Report available at ${reportHTMLUrl}`,
         title: `Total Failed: ${totalFailures}`,
-        text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `
+        text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `,
+        actions: [{
+          text: 'see:',
+          type: 'button',
+          url: `${process.env.TRAVIS_REPO_SLUG}/${process.env.TRAVIS_BUILD_NUMBER}/${process.env.TRAVIS_JOB_NUMBER}`,
+        }]
       };
     }
     case TestStatus.error: {
