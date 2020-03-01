@@ -23,7 +23,7 @@ defaults: &defaults
     # to kill all background jobs (like "npm start &")
     - yarn test
     - yarn run build
-    - yarn healthcheck
+    - yarn cli
     - kill $(jobs -p) || true
 
 # script:
