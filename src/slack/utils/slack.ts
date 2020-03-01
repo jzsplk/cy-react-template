@@ -67,7 +67,7 @@ export function webhookSendArgs(
         type: 'section', text: {
           type: 'plain_text',
           emoji: true,
-          text: ':fire: look like you better check your BDD tests :smilling_imp:'
+          text: ':fire: look like you better check your BDD tests :triumph:'
         }
       },
       { type: 'divider' },
@@ -75,29 +75,7 @@ export function webhookSendArgs(
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `*<${process.env.TRAVIS_BUILD_WEB_URL}|build at >*\n${new Date().toLocaleDateString()}`
-        },
-        accessory: {
-          type: 'image',
-          image_url: "https://a.slack-edge.com/80588/img/api/incoming_webhooks_permission_screen.png",
-          alt_text: 'logo'
-        }
-      },
-      {
-        type: 'context',
-        elements: [
-          {
-            type: "mrkdwn",
-            text: `:ambulance: power by qa bot returnscenter`
-          }
-        ]
-      },
-      { type: 'divider' },
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: `*check build ${process.env.TRAVIS_BUILD_NUMBER}*`,
+          text: `*check build #${process.env.TRAVIS_BUILD_NUMBER}* :point_right:`,
         },
         accessory: {
           type: 'button',
@@ -113,7 +91,7 @@ export function webhookSendArgs(
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `*check job ${process.env.TRAVIS_JOB_NUMBER}*`,
+          text: `*check job #${process.env.TRAVIS_JOB_NUMBER}* :point_right:`,
         },
         accessory: {
           type: 'button',
@@ -127,8 +105,6 @@ export function webhookSendArgs(
       },
       { type: 'divider' }
     ]
-    // unfurl_links: false,
-    // unfurl_media: false
   };
   return argsWebhookSend;
 }
