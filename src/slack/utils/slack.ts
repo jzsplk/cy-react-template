@@ -93,44 +93,59 @@ export function attachmentReports(
         title: `Total Failed: ${totalFailures}`,
         // text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `,
         text: `details`,
+        blocks: [{
+          type: "section", text: {
+            type: 'mrkdwn',
+            text: `${process.env.TRAVIS_APP_HOST}`
+          },
+        }, {
+          type: "actions",
+          elements: [{ type: 'button', url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}` }]
+        }, {
+          type: 'section',
+          text: {
+            type: "mrkdwn",
+            text: `${process.env.TRAVIS_BUILD_DIR}`
+          }
+        }, {
+          type: 'divider'
+        }, {
+          type: 'section',
+          text: {
+            type: "mrkdwn",
+            text: `${process.env.TRAVIS_COMMIT}`
+          }
+        }, {
+          type: 'file',
+          source: `${process.env.TRAVIS_BUILD_DIR}/mochawesome-report/mochawesome.json`
+        }],
         actions: [
+          {
+            text: `job details`,
+            type: 'button',
+            url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`,
+          },
+          {
+            text: `${process.env.TRAVIS_BUILD_WEB_URL}`,
+            type: 'button',
+            url: `${process.env.TRAVIS_BUILD_WEB_URL}`,
+          },
           // {
-          //   text: `job details`,
-          //   type: 'button',
-          //   url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`,
+          //   text: `${process.env.TRAVIS_APP_HOST}`,
+          //   type: 'select', // url: `${process.env.TRAVIS_APP_HOST}`,
+          //   options: [{ text: `${process.env.TRAVIS_APP_HOST}`, value: `${process.env.TRAVIS_APP_HOST}` }]
           // },
           // {
-          //   text: `${process.env.TRAVIS_BUILD_WEB_URL}`,
-          //   type: 'button',
-          //   url: `${process.env.TRAVIS_BUILD_WEB_URL}`,
+          //   text: `${process.env.TRAVIS_BUILD_DIR}`,
+          //   type: 'select',
+          //   url: `${process.env.TRAVIS_BUILD_DIR}`,
+          //   options: [{ text: `${process.env.TRAVIS_BUILD_DIR}`, value: `${process.env.TRAVIS_BUILD_DIR}` }]
           // },
-          {
-            text: 'try select',
-            type: 'select',
-            options: [{
-              text: 'job',
-              value: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`
-            }, {
-              text: 'build',
-              value: `${process.env.TRAVIS_BUILD_WEB_URL}`
-            }]
-          },
-          {
-            text: `${process.env.TRAVIS_APP_HOST}`,
-            type: 'select', // url: `${process.env.TRAVIS_APP_HOST}`,
-            options: [{ text: `${process.env.TRAVIS_APP_HOST}`, value: `${process.env.TRAVIS_APP_HOST}` }]
-          },
-          {
-            text: `${process.env.TRAVIS_BUILD_DIR}`,
-            type: 'select',
-            url: `${process.env.TRAVIS_BUILD_DIR}`,
-            options: [{ text: `${process.env.TRAVIS_BUILD_DIR}`, value: `${process.env.TRAVIS_BUILD_DIR}` }]
-          },
-          {
-            text: `${process.env.TRAVIS_COMMIT}`,
-            type: 'select',
-            options: [{ text: `${process.env.TRAVIS_COMMIT}`, value: `${process.env.TRAVIS_COMMIT}` }],
-          },
+          // {
+          //   text: `${process.env.TRAVIS_COMMIT}`,
+          //   type: 'select',
+          //   options: [{ text: `${process.env.TRAVIS_COMMIT}`, value: `${process.env.TRAVIS_COMMIT}` }],
+          // },
         ]
       };
     }
