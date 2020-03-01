@@ -67,7 +67,7 @@ export function webhookSendArgs(
         type: 'section', text: {
           type: 'plain_text',
           emoji: true,
-          text: 'look like you check your BDD test.'
+          text: ':fire: look like you better check your BDD tests :smilling_imp:'
         }
       },
       { type: 'divider' },
@@ -75,7 +75,7 @@ export function webhookSendArgs(
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `*<build_web_url${`${process.env.TRAVIS_BUILD_WEB_URL}`}| travis commit${process.env.TRAVIS_COMMIT}>*\n${new Date().toLocaleDateString()}`
+          text: `*<${process.env.TRAVIS_BUILD_WEB_URL}|build at >*\n${new Date().toLocaleDateString()}`
         },
         accessory: {
           type: 'image',
@@ -88,7 +88,7 @@ export function webhookSendArgs(
         elements: [
           {
             type: "mrkdwn",
-            text: `*build_dir${process.env.TRAVIS_BUILD_DIR}*`
+            text: `:ambulance: power by qa bot returnscenter`
           }
         ]
       },
@@ -97,14 +97,14 @@ export function webhookSendArgs(
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `*check build ${process.env.TRAVIS_BUILD_ID}*`,
+          text: `*check build ${process.env.TRAVIS_BUILD_NUMBER}*`,
         },
         accessory: {
           type: 'button',
           text: {
             type: 'plain_text',
             emoji: true,
-            text: 'check build'
+            text: `#${process.env.TRAVIS_BUILD_NUMBER}`
           },
           url: `${process.env.TRAVIS_BUILD_WEB_URL ?? ''}`
         }
@@ -113,16 +113,16 @@ export function webhookSendArgs(
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `*check job ${process.env.TRAVIS_JOB_ID}*`,
+          text: `*check job ${process.env.TRAVIS_JOB_NUMBER}*`,
         },
         accessory: {
           type: 'button',
           text: {
             type: 'plain_text',
-            emoji: true,
-            text: 'check job'
+            emoji: false,
+            text: `#${process.env.TRAVIS_JOB_NUMBER}`
           },
-          url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`
+          url: `${process.env.TRAVIS_JOB_WEB_URL}`
         }
       },
       { type: 'divider' }
@@ -157,77 +157,6 @@ export function attachmentReports(
         // fallback: `Report available at ${reportHTMLUrl}`,
         title: `Total Failed: ${totalFailures}`,
         text: `Total Tests: ${totalTests}\nTotal Passed:  ${totalPasses} `,
-        // blocks: [
-        //   {
-        //     "type": "section",
-        //     "text": {
-        //       "type": "mrkdwn",
-        //       "text": "Danny Torrence left the following review for your property:"
-        //     }
-        //   },
-        // {
-        //   type: 'section', text: {
-        //     type: 'plain_text',
-        //     emoji: true,
-        //     text: 'look like you check your BDD test.'
-        //   }
-        // },
-        // { type: 'divider' },
-        // {
-        //   type: 'section',
-        //   text: {
-        //     type: 'mrkdwn',
-        //     text: `*<build_web_url${`${process.env.TRAVIS_BUILD_WEB_URL}`}| travis commit${process.env.TRAVIS_COMMIT}>*\n${new Date().toLocaleDateString()}`
-        //   },
-        //   accessory: {
-        //     type: 'image',
-        //     image_url: "https://a.slack-edge.com/80588/img/api/incoming_webhooks_permission_screen.png",
-        //     alt_text: 'logo'
-        //   }
-        // },
-        // {
-        //   type: 'context',
-        //   elements: [
-        //     {
-        //       type: "mrkdwn",
-        //       text: `*build_dir${process.env.TRAVIS_BUILD_DIR}*`
-        //     }
-        //   ]
-        // },
-        // { type: 'divider' },
-        // {
-        //   type: 'section',
-        //   text: {
-        //     type: 'mrkdwn',
-        //     text: `*check build ${process.env.TRAVIS_BUILD_ID}*`,
-        //   },
-        //   accessory: {
-        //     type: 'button',
-        //     text: {
-        //       type: 'plain_text',
-        //       emoji: true,
-        //       text: 'check build'
-        //     },
-        //     url: `${process.env.TRAVIS_BUILD_WEB_URL ?? ''}`
-        //   }
-        // },
-        // {
-        //   type: 'section',
-        //   text: {
-        //     type: 'mrkdwn',
-        //     text: `*check job ${process.env.TRAVIS_JOB_ID}*`,
-        //   },
-        //   accessory: {
-        //     type: 'button',
-        //     text: {
-        //       type: 'plain_text',
-        //       emoji: true,
-        //       text: 'check job'
-        //     },
-        //     url: `https://travis-ci.org/${process.env.TRAVIS_REPO_SLUG}/jobs/${process.env.TRAVIS_JOB_ID}`
-        //   }
-        // }
-        // ],
       };
     }
     case TestStatus.error: {
