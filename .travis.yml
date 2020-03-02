@@ -21,7 +21,7 @@ defaults: &defaults
     # - yarn cypress:server:ci:parallel --group $STAGE_NAME
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
-    - yarn cli
+    - yarn watch
     - kill $(jobs -p) || true
 
 # script:

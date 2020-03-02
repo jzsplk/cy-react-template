@@ -16,6 +16,7 @@
     "cypress:run:record": "cypress run --record",
     "cypress:run:record:p": "cypress run --record --parallel",
     "cli": "rimraf cypress/reports && ts-node src/cli/cli.ts --spec 'cypress/integration/shopperPage/**/*'",
+    "watch": "cypress-ci-watcher --spec 'cypress/integration/shopperPage/**/*'",
     "cronChecker": "ts-node src/job/testScheduler.ts"
   },
   "eslintConfig": {},
@@ -37,6 +38,7 @@
     "@types/node": "^13.7.7",
     "awesome-typescript-loader": "^5.2.1",
     "cypress": "^4.0.2",
+    "cypress-ci-watcher": "^1.0.0",
     "cypress-multi-reporters": "^1.2.4",
     "del": "^5.1.0",
     "dotenv": "^8.2.0",
