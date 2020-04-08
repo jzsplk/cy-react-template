@@ -21,8 +21,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          # record: true
-          # parallel: true
+          record: true
+          parallel: true
           group: "Actions example"
           spec: cypress/integration/shopperPage/**/*
         env:
