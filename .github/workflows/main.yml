@@ -11,7 +11,11 @@ jobs:
         # the actual items in the array do not matter,
         # just the number - to force CI to sping 3 copies
         # of the current job in parallel
-        machines: [1, 2, 3]
+        machines:
+          [
+            cypress/integration/shopperPage/**/*,
+            cypress/integration/examples/files.spec.js,
+          ]
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -19,31 +23,35 @@ jobs:
       # because of "record" and "parallel" parameters
       # these machines will load balance all found tests among themselves
       - name: Cypress run
-        uses: cypress-io/github-action@v1
+        run: |
+          yarn cypress-ci-watcher
         with:
-          record: true
-          parallel: true
-          group: "Actions example"
-          spec: cypress/integration/shopperPage/**/*
-        env:
-          # pass the Dashboard record key as an environment variable
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          spec: ${{matrix.machines}}
+        # uses: cypress-io/github-action@v1
+        # with:
+        #   record: true
+        #   parallel: true
+        #   group: "Actions example"
+        #   spec: cypress/integration/shopperPage/**/*
+        # env:
+        # pass the Dashboard record key as an environment variable
+        # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       # after the test run completes
       # store videos and any screenshots
       # NOTE: screenshots will be generated only if E2E test failed
       # thus we store screenshots only on failures
       # Alternative: create and commit an empty cypress/screenshots folder
       # to always have something to upload
-      - name: Record in artifact screen
-        uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
+      # - name: Record in artifact screen
+      #   uses: actions/upload-artifact@v1
+      #   if: failure()
+      #   with:
+      #     name: cypress-screenshots
+      #     path: cypress/screenshots
       # Test run video was always captured, so this action uses "always()" condition
-      - name: Record in artifact video
-        uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: cypress-videos
-          path: cypress/videos
+      # - name: Record in artifact video
+      #   uses: actions/upload-artifact@v1
+      #   if: failure()
+      #   with:
+      #     name: cypress-videos
+      #     path: cypress/videos
