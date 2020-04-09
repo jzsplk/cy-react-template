@@ -24,9 +24,7 @@ jobs:
       # these machines will load balance all found tests among themselves
       - name: Cypress run
         run: |
-          yarn cypress-ci-watcher
-        with:
-          spec: ${{matrix.machines}}
+          yarn cypress-ci-watcher --spec ${{matrix.machines}}
         # uses: cypress-io/github-action@v1
         # with:
         #   record: true
