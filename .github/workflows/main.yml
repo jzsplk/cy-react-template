@@ -20,6 +20,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
+      - name: Install
+        uses: actions/actions-yarn@2.0.0
+        with:
+          cmd: install
+
       # because of "record" and "parallel" parameters
       # these machines will load balance all found tests among themselves
       - name: Cypress run
