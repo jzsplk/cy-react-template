@@ -20,6 +20,7 @@ describe("shopper site order lookup", function () {
       .type("{enter}");
 
     cy.contains('Your Returns')
+    cy.log('ok')
     // cy.get('button:contains("Find Your Order")').click()
 
     // cy.get('a:contains("Create Returns")').as("createReturnsButton");
