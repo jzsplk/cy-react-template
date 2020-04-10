@@ -1,11 +1,11 @@
 /// <reference types="Cypress" />
 
-describe("shopper site order lookup", function() {
-  it("visit shopper page and type right order number and email, can see Create Returns button", function() {
+describe("shopper site order lookup", function () {
+  it("visit shopper page and type right order number and email, can see Create Returns button", function () {
     cy.visit("https://admine2e.returnscenter.com/");
     cy.contains("Returns Center");
 
-    cy.get('a:contains("View Full Plicy")');
+    cy.get('a:contains("View Full Policy")');
     cy.wait(2000);
 
     cy.get("input")
@@ -18,12 +18,14 @@ describe("shopper site order lookup", function() {
       .type("y.zhang@aftership.com{enter}")
       .should("have.value", "y.zhang@aftership.com")
       .type("{enter}");
+
+    cy.contains('Your Returns')
     // cy.get('button:contains("Find Your Order")').click()
 
-    cy.get('a:contains("Create Returns")').as("createReturnsButton");
+    // cy.get('a:contains("Create Returns")').as("createReturnsButton");
 
-    cy.get("@createReturnsButton").click();
+    // cy.get("@createReturnsButton").click();
 
-    cy.contains("What would you like to return ?");
+    // cy.contains("What would you like to return ?");
   });
 });
